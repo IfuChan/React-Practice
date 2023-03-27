@@ -1,33 +1,18 @@
 import ClickCounter from "./components/ClickCounter";
 import HoverCounter from "./components/HoverCounter";
+import Counter from "./components/Counter";
 
 export default function App(){
     return <div className="App">
-        <ClickCounter/>
-        <HoverCounter/>
+        {/* <User render={(isLoggedIn)=>isLoggedIn?'sumittsss':'Giestsss'}/>  
+        <Counter render={(count, incrementCount)=><ClickCounter count={count} incrementCount={incrementCount}/>}/>
+        <Counter render={(count, incrementCount)=><HoverCounter count={count} incrementCount={incrementCount}/>}/> */}
+        <Counter>   
+        {(count, incrementCount)=>(<ClickCounter count={count} incrementCount={incrementCount}/>)}
+        </Counter>
+        <Counter>
+        {(count, incrementCount)=>(<HoverCounter count={count} incrementCount={incrementCount}/>)}
+        </Counter>
+        {/*This is a different variation of the render props!!!!*/}
     </div>;
 }
-
-
-
-
-
-//FOR COMPOSITION::::
-// import Emoji from "./components/composition/Emoji";
-// import Text from "./components/composition/Text";
-// import Bracket from "./components/composition/Bracket";
-
-// function App(){
-//     return(
-//        <Emoji>
-//         {({addEmoji})=>(
-//         <Bracket>
-//            {({addBracket})=><Text addEmoji={addEmoji} addBracket={addBracket}/>} 
-//         </Bracket>
-//         )}
-//        </Emoji>
-//     // <Text/>   // So text can work by itself, not tightly copled
-//     );
-// }
-
-// export default App;
