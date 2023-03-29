@@ -8,9 +8,22 @@ import ThemeContext from "./contexts/themeContext";
 export default class App extends React.Component{
     state={
         theme:'dark',
+        switchTheme: ()=>{
+            this.setState(({theme})=>{
+                if(theme==='dark'){
+                    return {
+                        theme:'light',
+                    };
+                }else {
+                    return {
+                        theme:'dark',
+                    };
+                }
+            });
+        }
     };
+
     render(){
-        const {theme}=this.state;
         return (
             <div className="App">
                 <Counter>   
@@ -19,7 +32,7 @@ export default class App extends React.Component{
                 {/* <Counter>
                 {(count, incrementCount)=>(<HoverCounter count={count} incrementCount={incrementCount}/>)}
                 </Counter> */}
-                <ThemeContext.Provider value={{theme:theme}}><Section/></ThemeContext.Provider>
+                <ThemeContext.Provider value={this.state}><Section/></ThemeContext.Provider>
             </div>
             );
     };
