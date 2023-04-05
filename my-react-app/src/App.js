@@ -1,11 +1,7 @@
-import Logo from "./components/Logo";
-import './assets/css/global.css'
+import Tutorial from "./components/Tutorial";
 
 export default function App() {
     return (
-        <div className="App">
-            <h1>Learn with Ifad!</h1>
-            <Logo />
-        </div>
+        <Tutorial />
     );
 }
